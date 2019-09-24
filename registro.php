@@ -9,6 +9,7 @@
 <body>
 
     <?php
+
          $servername = "sql104.phpzilla.net";
          $username = "phpz_24535379";
          $password = "colossusmark45";
