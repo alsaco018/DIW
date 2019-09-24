@@ -25,8 +25,7 @@
             echo $password;
 
             //password_hash($password, PASSWORD_DEFAULT);
-            mysqli_query($conexion,"insert into usuarios(Usuario_nick,Usuario_email,Usuario_clave,Usuario_token_aleatorio) values 
-                   ('$nick','$email','$password', '$token')")
+            mysqli_query($conexion,"INSERT INTO 'usuarios'('Usuario_nick', 'Usuario_clave', 'Usuario_email', 'Usuario_token_aleatorio') VALUES ('$nick','$password','$email','$token')")
             or die("Problemas en el select".mysqli_error($conexion));
             mysqli_close($conexion);
             echo "Ha sido dado de alta";
