@@ -1,12 +1,26 @@
 <!DOCTYPE html>
-
-<html lang="es" xmlns="http://www.w3.org/1999/xhtml">
+<html lang="es" >
 <head>
-    <meta charset="utf-8" />
-    <title>Alta de usuario</title>
-    
+  <meta charset="UTF-8">
+  <title>Animated text fill</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Neuton|Oswald'>
+<link rel="stylesheet" href="assets/css/signUp.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
 </head>
 <body>
+<!-- partial:index.partial.html -->
+<p>
+  Has sido dado de alta
+  <span>
+    Revisa tu correo
+  </span>
+  &mdash; y confirma tu cuenta de usuario &mdash;
+</p>
+<!-- partial -->
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <?php
 
@@ -16,11 +30,10 @@
          $dbname = "phpz_24535379_diw";
          
          // Create connection
-         echo "realizando conexion";
-         echo "<br>";
-         echo $servername;echo "<br>";
-         echo $username;echo "<br>";
-         echo $dbname;echo "<br>";
+         
+         //echo $servername;echo "<br>";
+         //echo $username;echo "<br>";
+         //echo $dbname;echo "<br>";
           //establecemos la conexion con la BD
          $conexion = mysqli_connect($servername, $username, $password, $dbname) or
              die("Connection failed: ");
@@ -30,19 +43,18 @@
          $email = $_REQUEST['email'];
          $pass = $_REQUEST['pass'];
 
-         $seed = Time();
-         $token = md5($seed);
+         $token = Time();
 
          //hasheo de la clave
          $passHash = hash('md5', $pass);
-         echo $passHash;
+         //echo $passHash;
         $sql = "INSERT INTO usuarios(Usuario_nick, Usuario_clave, Usuario_email, Usuario_token_aleatorio) VALUES ('$nick','$passHash','$email','$token')";
          //password_hash($password, PASSWORD_DEFAULT);
          mysqli_query($conexion,$sql)
          or die("Problemas en el insert".mysqli_error($conexion));
          mysqli_close($conexion);
-         echo "Ha sido dado de alta";
          
     ?>
+
 </body>
 </html>
