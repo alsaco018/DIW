@@ -1,7 +1,7 @@
 body {
     font: 400 1em/1.5 "Neuton";
-    background: #090d00;
-    color: rgba(255, 255, 255, 0.25);
+    background: #81589c;
+    color: rgb(255, 255, 255);
     text-align: center;
     margin: 0;
   }
@@ -10,7 +10,7 @@ body {
     text-transform: uppercase;
     letter-spacing: .5em;
     display: inline-block;
-    border: 4px double rgba(255, 255, 255, 0.25);
+    border: 4px double rgb(255, 255, 255);
     border-width: 4px 0;
     padding: 1.5em 0em;
     position: absolute;
@@ -25,14 +25,14 @@ body {
     padding: .25em 0 .325em;
     display: block;
     margin: 0 auto;
-    text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
+    text-shadow: 0 0 80px rgba(255, 255, 255, 0.918);
     /* Clip Background Image */
-    background: url(https://wallpapercave.com/wp/F85GHXH.jpg) repeat-y;
+    background: url(https://www.featurepics.com/StockImage/20100809/white-brick-wall-stock-image-1630875.jpg) repeat-y;
     -webkit-background-clip: text;
     background-clip: text;
     /* Animate Background Image */
     -webkit-text-fill-color: transparent;
-    -webkit-animation: aitf 50s linear infinite;
+    -webkit-animation: aitf 65s linear infinite;
     /* Activate hardware acceleration for smoother animations */
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;

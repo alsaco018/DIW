@@ -87,7 +87,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #090d00;
+		background: #fff;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -150,7 +150,7 @@ input, select, textarea {
 		}
 
 	strong, b {
-		color: #fff;
+		color: #81589c;
 		font-weight: 600;
 	}
 
@@ -2078,15 +2078,15 @@ input, select, textarea {
 			}
 
 		.icon.style1 {
-			color: #00ffcc;
+			color: rgb(255, 255, 255);
 		}
 
 		.icon.style2 {
-			color: #00f0ff;
+			color: rgba(255, 255, 255, 0.781);
 		}
 
 		.icon.style3 {
-			color: #76ddff;
+			color: rgba(255, 255, 255, 0.575);
 		}
 
 /* Image */
@@ -2604,7 +2604,7 @@ input, select, textarea {
 
 			.features li:before {
 				display: block;
-				color: #00ffcc;
+				color: #fff;
 				position: absolute;
 				left: 1.75em;
 				top: 2.75em;
@@ -2788,11 +2788,11 @@ input, select, textarea {
 /* Wrapper */
 
 	.wrapper {
-		padding: 6em 0 4em 0 ;
+		padding: 6em 10em 4em 10em ;
 	}
 
 		.wrapper > .inner {
-			width: 60em;
+			width: 50em;
 			margin: 0 auto;
 		}
 
@@ -2817,7 +2817,7 @@ input, select, textarea {
 		}
 
 		.wrapper.style1 {
-			background-color: #21b2a6;
+			background-color: #81589c;
 			color: #c8ece9;
 		}
 
@@ -3320,16 +3320,22 @@ input, select, textarea {
 /* Page Wrapper + Menu */
 
 	#page-wrapper {
-		-moz-transition: opacity 0.5s ease;
+		color: #81589c;
+		/*-moz-transition: opacity 0.5s ease;
 		-webkit-transition: opacity 0.5s ease;
 		-ms-transition: opacity 0.5s ease;
 		transition: opacity 0.5s ease;
-		opacity: 1;
+		opacity: 1;*/
 		padding-top: 3em;
 	}
 
+		#page-wrapper h1{
+			color: #fff;
+		}
+
 		#page-wrapper:before {
-			background: rgba(0, 0, 0, 0);
+			background: #fff;
+			color: #81589c;
 			content: '';
 			display: block;
 			display: none;
@@ -3351,7 +3357,7 @@ input, select, textarea {
 		-ms-transition: -ms-transform 0.5s ease;
 		transition: transform 0.5s ease;
 		-webkit-overflow-scrolling: touch;
-		background: #21b2a6;
+		background: #81589c;
 		color: #ffffff;
 		height: 100%;
 		max-width: 80%;
@@ -3445,7 +3451,7 @@ input, select, textarea {
 		-webkit-transition: background-color 0.2s ease;
 		-ms-transition: background-color 0.2s ease;
 		transition: background-color 0.2s ease;
-		background: #2e3842;
+		background: #81589c;
 		height: 3em;
 		left: 0;
 		line-height: 3em;
@@ -3585,6 +3591,7 @@ input, select, textarea {
 	}
 
 		#banner h2 {
+			color: #81589c;
 			-moz-transform: scale(1);
 			-webkit-transform: scale(1);
 			-ms-transform: scale(1);
@@ -3610,7 +3617,7 @@ input, select, textarea {
 				-webkit-transition-delay: 0.25s;
 				-ms-transition-delay: 0.25s;
 				transition-delay: 0.25s;
-				background: #fff;
+				background: #81589c;
 				content: '';
 				display: block;
 				height: 2px;
@@ -3631,6 +3638,7 @@ input, select, textarea {
 		#banner p {
 			letter-spacing: 0.225em;
 			text-transform: uppercase;
+			padding: 15px;
 		}
 
 			#banner p a {
@@ -3814,10 +3822,10 @@ input, select, textarea {
 
 	#main > header {
 		padding: 12em 0 10em 0 ;
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -3964,10 +3972,10 @@ input, select, textarea {
 /* Landing */
 
 	body.landing #page-wrapper {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
 		background-attachment: fixed;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -3985,10 +3993,10 @@ input, select, textarea {
 
 	body.is-mobile.landing #banner,
 	body.is-mobile.landing .wrapper.style4 {
-		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
-		background-image: linear-gradient(top, rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("../../images/banner.jpg");
+		background-image: -moz-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: -webkit-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: -ms-linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
+		background-image: linear-gradient(top, rgba(0,0,0,0.05), rgba(0,0,0,0.05)), url("../../images/banner.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
