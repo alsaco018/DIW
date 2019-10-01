@@ -27,12 +27,12 @@ body {
     margin: 0 auto;
     text-shadow: 0 0 80px rgba(255, 255, 255, 0.5);
     /* Clip Background Image */
-    background: url(http://papers.co/wallpaper/papers.co-vx20-galaxy-s8-purple-pattern-background-35-3840x2160-4k-wallpaper.jpg) repeat-y;
+    background: url(https://wallpapercave.com/wp/F85GHXH.jpg) repeat-y;
     -webkit-background-clip: text;
     background-clip: text;
     /* Animate Background Image */
     -webkit-text-fill-color: transparent;
-    -webkit-animation: aitf 80s linear infinite;
+    -webkit-animation: aitf 50s linear infinite;
     /* Activate hardware acceleration for smoother animations */
     -webkit-transform: translate3d(0, 0, 0);
     -webkit-backface-visibility: hidden;

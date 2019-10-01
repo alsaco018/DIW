@@ -54,6 +54,20 @@
          or die("Problemas en el insert".mysqli_error($conexion));
          mysqli_close($conexion);
          
+        $to = "alsaco182115@gmail.com"; //email al que enviamos el correo
+        $from = $email; //
+        $subject = "Registro";
+       
+        $message = $nick . " Has sido dado de alta en nuestra web:";
+        
+
+        $headers = "From:" . $to;
+        $headers2 = "From:" . $to;
+        $envio = mail($to,$subject,$message);
+        $envio2 = mail($from,$subject,$message); // sends a copy of the message to the sender
+        
+        // You can also use header('Location: thank_you.php'); to redirect to another page.
+    
     ?>
 
 </body>
