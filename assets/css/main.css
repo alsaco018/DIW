@@ -3321,11 +3321,11 @@ input, select, textarea {
 
 	#page-wrapper {
 		color: #81589c;
-		/*-moz-transition: opacity 0.5s ease;
-		-webkit-transition: opacity 0.5s ease;
-		-ms-transition: opacity 0.5s ease;
-		transition: opacity 0.5s ease;
-		opacity: 1;*/
+		-moz-transition: opacity 0.25s ease;
+		-webkit-transition: opacity 0.25s ease;
+		-ms-transition: opacity 0.25s ease;
+		transition: opacity 0.25s ease;
+		opacity: 1;
 		padding-top: 3em;
 	}
 
@@ -3352,10 +3352,10 @@ input, select, textarea {
 		-webkit-transform: translateX(20em);
 		-ms-transform: translateX(20em);
 		transform: translateX(20em);
-		-moz-transition: -moz-transform 0.5s ease;
-		-webkit-transition: -webkit-transform 0.5s ease;
-		-ms-transition: -ms-transform 0.5s ease;
-		transition: transform 0.5s ease;
+		-moz-transition: -moz-transform 0.25s ease;
+		-webkit-transition: -webkit-transform 0.25s ease;
+		-ms-transition: -ms-transform 0.25s ease;
+		transition: transform 0.25s ease;
 		-webkit-overflow-scrolling: touch;
 		background: #81589c;
 		color: #ffffff;
