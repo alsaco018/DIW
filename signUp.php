@@ -15,12 +15,12 @@
 			<div class="sign-in-htm">
           <form action="logIn.php" method="post" name="form">
             <div class="group">
-              <label for="user" class="label">Nick</label>
-              <input id="user" type="text" class="input">
+            <label for="user" class="label">Nick</label>
+              <input name="user" id="user" type="text" class="input">
             </div>
             <div class="group">
               <label for="pass" class="label">Contraseña</label>
-              <input id="pass" type="password" class="input" data-type="password">
+              <input name="pass" id="pass" type="password" class="input" data-type="password">
             </div>
             <div class="group">
               <input id="check" type="checkbox" class="check" checked>

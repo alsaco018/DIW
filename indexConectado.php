@@ -19,18 +19,20 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">La Gallina Violeta</a></h1>
+                        <h1><a href="indexConectado.php">La Gallina Violeta</a></h1>
+                        
 						<nav id="nav">
 							<ul>
 								<li class="special">
+                                
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-											<li><a href="index.html">Home</a></li>
+                                            <li><a href="perfilUsuario.php"><?php echo "_". $_SESSION['usuario']; ?></a></li>
+											<li><a href="indexConectado.php">Home</a></li>
 											<li><a href="#cta">Pedidos</a></li>
 											<li><a href="catalogo.html">Catálogo</a></li>
 											<li><a href="signUp.php">Iniciar sesión / Registrarse</a></li>
-											
 										</ul>
 									</div>
 								</li>
