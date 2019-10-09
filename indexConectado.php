@@ -13,7 +13,7 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="landing is-preload">
-
+<?php session_start();?>
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
@@ -28,11 +28,12 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-                                            <li><a href="perfilUsuario.php"><?php echo "_". $_SESSION['usuario']; ?></a></li>
+                                            <li><a href="perfilUsuario.php"><?php echo $_SESSION['usuario']; ?></a></li>
 											<li><a href="indexConectado.php">Home</a></li>
 											<li><a href="#cta">Pedidos</a></li>
 											<li><a href="catalogo.html">Catálogo</a></li>
-											<li><a href="signUp.php">Iniciar sesión / Registrarse</a></li>
+                                            
+                                            <li><a href = "logOut.php">Cerrar sesión</a></li>
 										</ul>
 									</div>
 								</li>

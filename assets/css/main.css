@@ -3588,6 +3588,8 @@ input, select, textarea {
 		overflow: hidden;
 		position: relative;
 		text-align: center;
+		background: url(https://i.ibb.co/nDY3bSr/back-Ground.png) no-repeat center;
+		
 	}
 
 		#banner h2 {
@@ -3988,7 +3990,7 @@ input, select, textarea {
 	}
 
 	body.is-mobile.landing #page-wrapper {
-		background: none;
+		background: url(https://i.ibb.co/nDY3bSr/back-Ground.png) no-repeat center;
 	}
 
 	body.is-mobile.landing #banner,

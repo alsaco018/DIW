@@ -11,7 +11,7 @@
    $login_session = $row['usuario'];
    
    if(!isset($_SESSION['usuario'])){
-      header("location:indexConfirmado.php");
+      header("location:signUp.php");
       die();
    }
 ?>

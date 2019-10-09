@@ -50,9 +50,9 @@
           //echo $passHash;
           $sql = "INSERT INTO usuarios(Usuario_nick, Usuario_clave, Usuario_email, Usuario_token_aleatorio, Usuario_bloqueado) VALUES ('$nick','$passHash','$email','$token',1)";
           //password_hash($password, PASSWORD_DEFAULT);
-          mysqli_query($conexion,$sql)
-          or die("Problemas en el insert".mysqli_error($conexion));
-          mysqli_close($conexion);
+          mysqli_query($db,$sql)
+          or die("Problemas en el insert".mysqli_error($db));
+          mysqli_close($db);
         
          
         
