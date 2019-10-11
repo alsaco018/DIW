@@ -2,7 +2,7 @@
 <html lang="es" >
 <head>
   <meta charset="UTF-8">
-  <title>Registro</title>
+  <title>Reactivación</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -13,7 +13,7 @@
 <body>
 <!-- partial:index.partial.html -->
 <p>
-  Tu cuenta ha sido confirmada
+  Tu cuenta ha sido reactivada
   <span>
     GRACIAS
   </span>
@@ -24,30 +24,22 @@
 
     <?php
     include('dbConfig.php');
-    
+    start_session();
           $nick = ($_GET['nick']);
-          $email = ($_GET['email']);
-          $pass = ($_GET['pass']);
+          
             //borramos <?php echo ';?' de las variables
           $nick = str_replace("<?php echo ","",$nick);
           $nick = str_replace(";?>","",$nick);
-          $email = str_replace("<?php echo ","",$email);
-          $email = str_replace(";?>","",$email);
-          $pass = str_replace("<?php echo ","",$pass);
-          $pass = str_replace(";?>","",$pass);
+          
             //establecemos la conexion con la BD
           $db or
               die("Connection failed: ");
     
           $token = Time();
-          $fecha = date("m.d.y");
-          //hasheo de la clave
-          $passHash = hash('md5', $pass);
-          //echo $passHash;
-          $sql = "INSERT INTO usuarios(Usuario_nick, Usuario_clave, Usuario_email, Usuario_token_aleatorio, Usuario_fecha_alta) VALUES ('$nick','$passHash','$email','$token','$fecha')";
-          //password_hash($password, PASSWORD_DEFAULT);
+          
+          $sql = "UPDATE usuarios SET Usuario_bloqueado=0, Usuario_numero_intentos=0, Usuario_token_aleatorio='".$token." WHERE Usuario_nick = '".$nick."'";
           mysqli_query($db,$sql)
-          or die("Problemas en el insert".mysqli_error($db));
+          or die("Problemas en el update".mysqli_error($db));
           mysqli_close($db);
         
          

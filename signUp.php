@@ -15,8 +15,8 @@
 			<div class="sign-in-htm">
           <form action="logIn.php" method="post" name="form">
             <div class="group">
-            <label for="user" class="label">Nick</label>
-              <input name="user" id="user" type="text" class="input">
+            <label for="email" class="label">Email</label>
+              <input name="email" id="email" type="email" class="input">
             </div>
             <div class="group">
               <label for="pass" class="label">Contraseña</label>

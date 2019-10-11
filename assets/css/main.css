@@ -3567,6 +3567,10 @@ input, select, textarea {
 				opacity: 0;
 			}
 
+			#header.alt span{
+				color: #81589c;
+			}
+
 /* Banner */
 
 	#banner {
