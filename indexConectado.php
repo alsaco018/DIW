@@ -29,7 +29,7 @@
 									<div id="menu">
 										<ul>
                                             <li><a href="perfilUsuario.php"><?php echo $_SESSION['usuario']; ?></a></li>
-											<li><a href="indexConectado.php">Home</a></li>
+											<li><a href="#banner">Home</a></li>
 											<li><a href="#cta">Pedidos</a></li>
 											<li><a href="catalogo.html">Catálogo</a></li>
                                             

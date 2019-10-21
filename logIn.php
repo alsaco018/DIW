@@ -29,12 +29,16 @@ require 'PHPMailer/src/SMTP.php';
 include('dbConfig.php');
 session_start();
 
-$result = $result->fetch_array();
-$nick = intval($result[0]);
-$email = $_REQUEST['user'];
-$pass = $_REQUEST['pass'];
-
+$email = $_REQUEST['email'];
+$pass = $_REQUEST['pass0'];
 $passHash = hash('md5', $pass);
+
+$sql = "select Usuario_nick from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+          //password_hash($password, PASSWORD_DEFAULT);
+          $result = mysqli_query($db,$sql);
+          $result = $result->fetch_array();
+          $nick = $result[0];
+
 
 $_SESSION['email'] = $email;
 $_SESSION['password'] = $pass;
@@ -44,20 +48,20 @@ $_SESSION['usuario'] = $nick;
 $db or
     die("Connection failed: ");
 
-    $sql = "select * from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+    $sql2 = "select * from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
           //password_hash($password, PASSWORD_DEFAULT);
-          $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
+          $result2 = mysqli_query($db,$sql2);
+      //$row2 = mysqli_fetch_array($result2,MYSQLI_ASSOC);
+      //$active = $row2['active'];
       
-      $count = mysqli_num_rows($result);
+      $count = mysqli_num_rows($result2);
       //echo $sql;
       echo "<br>";
       // si encuentra al usuario el valor de la fila será 1
 		
       if($count == 1) {
         $fecha = date("m.d.y");
-        $sqlconexion = "UPDATE usuarios SET Usuario_fecha_ultima_conexion='".$fecha."' WHERE Usuario_nick = '".$nick."'";
+        $sqlconexion = "UPDATE usuarios SET Usuario_fecha_ultima_conexion='".$fecha."', Usuario_numero_intentos = 0 WHERE Usuario_email = '".$email."'";
         mysqli_query($db,$sqlconexion)
         or die("Problemas en el update 1".mysqli_error($db));
 
@@ -76,21 +80,21 @@ $db or
          
          //$nFallos = $nFallos+1;
          //$error = $fallos;
-         $sqlFallos2 = "UPDATE usuarios SET Usuario_numero_intentos = (Usuario_numero_intentos + 1) WHERE Usuario_nick = '".$nick."'";
+         $sqlFallos2 = "UPDATE usuarios SET Usuario_numero_intentos = (Usuario_numero_intentos + 1) WHERE Usuario_email = '".$email."'";
           mysqli_query($db,$sqlFallos2)
           or die("Problemas en el update 2".mysqli_error($db));
 
-          $mysql_qry = "SELECT Usuario_numero_intentos  FROM usuarios WHERE Usuario_nick = '".$nick."'";
-          $result = mysqli_query($db, $mysql_qry);
+          $mysql_qry = "SELECT Usuario_numero_intentos  FROM usuarios WHERE Usuario_email = '".$email."'";
+          $result3 = mysqli_query($db, $mysql_qry);
  
           //$row = mysqli_fetch_array($result, 'MYSQLI_ASSOC'); // Use something like this to get the result
           //$quantity = $row['quantity'];
           //$error = $quantity;
-          $result = $result->fetch_array();
-          $quantity = intval($result[0]);
+          $result3 = $result3->fetch_array();
+          $quantity = intval($result3[0]);
         if($quantity >= 3){
           $error = "Tu cuenta ha sido bloqueada, revisa tu correo para desbloquearla.";
-          $sqlBloqueo = "UPDATE usuarios SET Usuario_bloqueado=1 WHERE Usuario_nick = '".$nick."'";
+          $sqlBloqueo = "UPDATE usuarios SET Usuario_bloqueado=1 WHERE Usuario_email = '".$email."'";
           mysqli_query($db,$sqlBloqueo)
           or die("Problemas en el update 3".mysqli_error($db));
 
@@ -102,7 +106,7 @@ $db or
           $mailer->setFrom('albertosaldanadiw@gmail.com', 'Alberto');
        
           /* Add a recipient. */
-          $mailer->addAddress($_SESSION['email'], 'Usuario');
+          $mailer->addAddress($email, 'Usuario');
        
           /* Set the subject. */
           $mailer->Subject = 'Bloqueo de cuenta en La Gallina Violeta';
@@ -110,7 +114,7 @@ $db or
           /* Set the mail message body. */
           $mailer->Body .= "<meta charset='UTF-8'><h1>Bloqueo de cuenta en La Gallina Violeta</h1><br><br>";
           $mailer->Body .= "<h3>".$nick." tu cuenta se ha bloqueado</h3><br>";
-          $mailer->Body .= "<p>Para reactivar tu cuenta pulsa este enlace: <a href='http://www.albertosaldanacontreras.phpzilla.net/reactivarCuenta.php?nick=<?php echo $nick;?>Reactivar cuenta</a>";
+          $mailer->Body .= "<p>Para reactivar tu cuenta pulsa este enlace: <a href='http://www.albertosaldanacontreras.phpzilla.net/reactivarCuenta.php?email=<?php echo $email;?>'>Reactivar cuenta</a>";
           $mailer->IsHTML(true);
 
           $mailer->isSMTP();
@@ -152,8 +156,8 @@ $db or
 			<div class="sign-in-htm">
           <form action="logIn.php" method="post" name="form">
             <div class="group">
-            <label for="user" class="label">Nick</label>
-              <input name="user" id="user" type="text" class="input">
+            <label for="email" class="label">Email</label>
+              <input name="email" id="email" type="text" class="input">
             </div>
             <div class="group">
               <label for="pass" class="label">Contraseña</label>

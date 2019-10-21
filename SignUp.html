@@ -5,6 +5,20 @@
   <title>Log in / Registro</title>
   <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
 <link rel="stylesheet" href="assets/css/logIn.css">
+<script type="text/javascript">
+
+  function compruebaContrasenna(){
+      if(document.getElementById('pass').value != document.getElementById('pass2').value){
+        alert("Las contraseñas no coinciden");
+        event.preventDefault();
+        document.getElementById('pass').value = "";
+        document.getElementById('pass2').value = "";
+      }else{
+        document.getElementById('formularioRegistro').action = "registro.php";
+      }
+  }
+  
+</script>
 </head>
 <body>
 <div class="login-wrap">
@@ -19,8 +33,8 @@
               <input name="email" id="email" type="email" class="input">
             </div>
             <div class="group">
-              <label for="pass" class="label">Contraseña</label>
-              <input name="pass" id="pass" type="password" class="input" data-type="password">
+              <label for="pass0" class="label">Contraseña</label>
+              <input name="pass0" id="pass0" type="password" class="input" data-type="password">
             </div>
             <!--<div class="group">
               <input id="check" type="checkbox" class="check" checked>
@@ -36,7 +50,7 @@
             </form>
       </div>
 			<div class="sign-up-htm">
-          <form action="registro.php" method="post" enctype="multipart/form-data">
+          <form action="" method="post" id="formularioRegistro" enctype="multipart/form-data">
             <div class="group">
               <label for="user" class="label">Nick</label>
               <input name="user" id="user" type="text" class="input">
@@ -51,23 +65,15 @@
               <input id="pass2" type="password" class="input" data-type="password">
               
             </div>
-
+            
             <div class="group">
               <label for="email" class="label">Email</label>
               <input name="email" id="email" type="email" class="input">
             </div>
             <div class="group">
-              <button type="submit" class="button" value="registrase">Registrarse</button>
+              <button type="submit" class="button" value="registrarse" onclick="compruebaContrasenna()">Registrarse</button>
             </div>
-            <div class="group">
-              <?php 
-              $error = ($_GET['error']);
-              $error = str_replace("<?php echo ","",$error);
-              $error = str_replace(";?>","",$error);
-              ?>
-                <p id="error" style="color:red;"><?php echo $error; $error = "";?></p>
-
-            </div>
+            
             <div class="hr"></div>
             <div class="foot-lnk">
               <label for="tab-1">¿Ya perteneces a la web?</a>

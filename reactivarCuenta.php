@@ -19,17 +19,24 @@
   </span>
   &mdash; ya puedes iniciar sesión &mdash;
 </p>
+
+<p style="margin-top: 35%">
+
+  
+  <a style="text-decoration:none;color:white;" href="http://albertosaldanacontreras.phpzilla.net" data-toggle="tooltip" data-placement="bottom" title="¡Gracias por volver!">&mdash; Volver a la página principal &mdash;</a>
+
+</p>
 <!-- partial -->
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
     <?php
     include('dbConfig.php');
-    start_session();
-          $nick = ($_GET['nick']);
+    //start_session();
+          $email = ($_GET['email']);
           
             //borramos <?php echo ';?' de las variables
-          $nick = str_replace("<?php echo ","",$nick);
-          $nick = str_replace(";?>","",$nick);
+          $email = str_replace("<?php echo ","",$email);
+          $email = str_replace(";?>","",$email);
           
             //establecemos la conexion con la BD
           $db or
@@ -37,7 +44,7 @@
     
           $token = Time();
           
-          $sql = "UPDATE usuarios SET Usuario_bloqueado=0, Usuario_numero_intentos=0, Usuario_token_aleatorio='".$token." WHERE Usuario_nick = '".$nick."'";
+          $sql = "UPDATE usuarios SET Usuario_bloqueado = 0, Usuario_numero_intentos = 0, Usuario_token_aleatorio ='".$token."' WHERE Usuario_email = '".$email."'";
           mysqli_query($db,$sql)
           or die("Problemas en el update".mysqli_error($db));
           mysqli_close($db);
