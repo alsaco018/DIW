@@ -2,132 +2,88 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Panel de configuración del usuario</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-<link rel="stylesheet" href="assets/css/perfilUsuario.css">
-<style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
+  <title>Panel de configuración de usario</title>
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css'>
+<link rel='stylesheet' href='https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'><link rel="stylesheet" href="assets/css/perfilUsuario.css">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<div class="wrapper">
-    <div class="container">
-        <header>
-            <h1>Configuración</h1>
-        </header>
-        <section>
-            <div class="form">
-                <div class="input-item">
-                    <div class="label-part">
-                        <label for="nombre">Nombre</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" autocomplete="off" id="nombre" value="Menganito" placeholder="Tu nombre, el de verdad." onfocus="this.value = this.value;" />
-                    </div>
-				</div>
-                <div class="input-item">
-                    <div class="label-part">
-                        <label for="apellido1">Primer apellido</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" autocomplete="off" id="apellido1"  placeholder="Tu primer apellido." />
-                    </div>
-                </div>
-                <div class="input-item">
-                    <div class="label-part">
-                        <label for="apellido2">Segundo apellido</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" autocomplete="off" id="apellido2" placeholder="Sí, tu segundo apellido también." />
-                    </div>
-                </div>
-                <div class="input-item">
-                    <div class="label-part">
-                        <label for="nif">NIF</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" id="nif" placeholder="Por favor, que no sea ‘12345678A’" />
-                        <span>9 caracteres</span>
-                    </div>
-                </div>
-                <div class="input-item">
-                    <div class="label-part">
-                        <label for="telefono">Número de teléfono</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" autocomplete="off" id="telefono" placeholder="Te aseguro que no es para chatear." />
-                    </div>
-				</div>
-				<div class="input-item">
-                    <div class="label-part">
-                        <label for="perfil">Perfil</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" autocomplete="off" id="perfil" placeholder="De momento no sé ni qué es." />
-                    </div>
-				</div>
-				<div class="input-item">
-                    <div class="label-part">
-                        <label for="provincia">Provincia</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" autocomplete="off" id="provincia" placeholder="" />
-                    </div>
-				</div>
-				<div class="input-item">
-                    <div class="label-part">
-                        <label for="poblacion">Población</label>
-                    </div>
-                    <div class="input-part">
-                        <input type="text" autocomplete="off" id="plobacion" placeholder="La hermosa localidad en la que vives." />
-                    </div>
-				</div>
-				<div id="map"></div>
-				<script>
-					var map;
-					function initMap() {
-						map = new google.maps.Map(document.getElementById('map'), {
-						center: {lat: -34.397, lng: 150.644},
-						zoom: 8
-						});
-					}
-					</script>
-					<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOqoVjFL8zuvtO7rx3Q2Dd_owvhOOkxh4&callback=initMap"
-					async defer></script>
-				</div>
-				<div class="change-image">
-					<div class="profile-img-container">
-						<a href="javascript:;">Añadir imagen</a>
-						<img src="https://s3.postimg.org/jmp5z872n/profile_image.jpg" class="profile" alt="" />
-					</div>
-					<div class="edit">
-						<a href="javascript:;" class="remove"><img src="https://s10.postimg.org/6ayr9sjj9/image.png" alt="" /></a>
-						<a href="javascript:;" class="rotate"><img src="https://s10.postimg.org/ywimyp3ad/rotate.png" alt="" /></a>
-					</div>
-				</div>
-			
-        </section>
-        <footer>
-            <a href="javascript:;" class="cancel"><span>&larr;</span> Cancelar</a>
-        <a href="javascript:;" class="save">Guardar <span>&rarr;</span></a>
-        </footer>
+<?php session_start();?>
+<div class="contact" id="contact">
+  <div class="container">
+    <div class="col-md-offset-1 col-md-10">
+      <h2><?php echo $_SESSION['usuario']; ?><i class="fa fa-user"></i></h2>
+      
     </div>
+    <form method="post" action="cambiarPerfil.php" name="contactform" id="contactform">
+      <div class="col-md-offset-1 col-md-3">
+        <fieldset>
+          <input name="nombre" type="text" id="nombre" size="30" placeholder="Nombre">
+          <br>
+          <input name="apellido1" type="text" id="apellido1" size="30" placeholder="Primer apellido">
+          <br>
+          <input name="apellido2" type="text" id="apellido2" size="30" placeholder="Segundo apellido">
+          <br>
+          <input name="nif" type="text" id="nif" size="30" placeholder="DNI (12345678A)">
+          <br>
+          <input name="telefono" type="text" id="telefono" size="30" placeholder="Teléfono">
+          <br>
+          <input name="email" type="text" id="email" size="30" value="<?php echo $_SESSION['email']; ?>">
+          <br>
+          <input name="nick" type="text" id="nick" size="30" value="<?php echo $_SESSION['usuario']; ?>">
+          <br>
+          <input name="pass" type="text" id="pass" size="30" value="<?php echo $_SESSION['password']; ?>">
+          <br>
+          
+        </fieldset>
+      </div>
+      <div class="col-md-7">
+        <fieldset>
+        <input name="provincia" type="text" id="provincia" size="30" placeholder="Provincia">
+          <br>
+          <input name="poblacion" type="text" id="poblacion" size="30" placeholder="Población">
+          <br>
+          <input name="direccion" type="text" id="direccion" size="30" placeholder="Dirección">
+          <br>
+                    <div class="pac-card" id="pac-card">
+            <div>
+              
+              <div id="type-selector" class="pac-controls">
+                <input type="radio" name="type" id="changetype-all" checked="checked" hidden>
+                
+              </div>
+              
+            </div>
+            <div id="pac-container">
+              <input id="pac-input" type="text"
+                  placeholder="Enter a location">
+            </div>
+          </div>
+          <div id="map-canvas"></div>
+          <div id="infowindow-content">
+            <img src="" width="12" height="12" id="place-icon">
+            <span id="place-name"  class="title"></span><br>
+            <span id="place-address"></span>
+          </div>
+
+          
+        </fieldset>
+      </div>
+      <div class="col-md-offset-1 col-md-10">
+        <fieldset>
+          <button type="submit" class="btn btn-lg" id="submit" value="Submit">Guardar</button>
+        </fieldset>
+      </div>
+    </form>
+  </div>
 </div>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAsbZh-OJcjNt9NIcfeXFUImyjBYovmdE&libraries=places&callback=initMap"
+        async defer></script>
+
 <!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://rawgit.com/fronteed/icheck/1.x/icheck.min.js'></script><script  src="assets/js/perfilUsuario.js"></script>
+  <script  src="assets/js/perfilUsuario.js"></script>
 
 </body>
 </html>
