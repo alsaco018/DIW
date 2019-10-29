@@ -23,7 +23,7 @@
 <p style="margin-top: 35%">
 
   
-  <a style="text-decoration:none;color:white;" href="http://albertosaldanacontreras.phpzilla.net/indexConectado.php" data-toggle="tooltip" data-placement="bottom" title="Volver a la página principal">&mdash; Volver a la página principal &mdash;</a>
+  <a style="text-decoration:none;color:white;" href="http://albertosaldanacontreras.phpzilla.net" data-toggle="tooltip" data-placement="bottom" title="Volver a la página principal">&mdash; Volver a la página principal &mdash;</a>
 
 </p>
 <!-- partial -->
@@ -33,17 +33,17 @@
     session_start();
     include('dbConfig.php');
     
-          $nick = $_GET['nick'];
+          $nick = $_REQUEST['nick'];
           $email = $_SESSION['email'];
-          $pass = $_GET['pass'];
-          $nombre = $_GET['nombre'];
-          $apellido1 = $_GET['apellido1'];
-          $apellido2 = $_GET['apellido2'];
-          $nif = $_GET['nif'];
-          $telefono = $_GET['telefono'];
-          $provincia = $_GET['provincia'];
-          $poblacion = $_GET['poblacion'];
-          $direccion = $_GET['direccion'];
+          $pass = $_REQUEST['pass'];
+          $nombre = $_REQUEST['nombre'];
+          $apellido1 = $_REQUEST['apellido1'];
+          $apellido2 = $_REQUEST['apellido2'];
+          $nif = $_REQUEST['nif'];
+          $telefono = $_REQUEST['telefono'];
+          $provincia = $_REQUEST['provincia'];
+          $poblacion = $_REQUEST['poblacion'];
+          $direccion = $_REQUEST['direccion'];
 
           $_SESSION['nombre'] = $nombre;
           $_SESSION['apellido1'] = $apellido1;

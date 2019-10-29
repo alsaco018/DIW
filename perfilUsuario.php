@@ -19,24 +19,24 @@
     <form method="post" action="cambiarPerfil.php" name="contactform" id="contactform" enctype="multipart/form-data">
       <div class="col-md-offset-1 col-md-3">
         <fieldset>
-          <input name="nombre" type="text" id="nombre" size="30" placeholder="Nombre" <?php if($_SESSION['nombre'] != null){
-            echo "value=".$_SESSION['nombre']."";
+          <input name="nombre" type="text" id="nombre" size="30" placeholder="Nombre" <?php if(isset($_SESSION['nombre'])){
+            echo "value='".$_SESSION['nombre']."'";
           } ?>>
           <br>
-          <input name="apellido1" type="text" id="apellido1" size="30" placeholder="Primer apellido"  <?php if($_SESSION['apellido1'] != null){
-            echo "value=".$_SESSION['apellido1']."";
+          <input name="apellido1" type="text" id="apellido1" size="30" placeholder="Primer apellido"  <?php if(isset($_SESSION['apellido1'])){
+            echo "value='".$_SESSION['apellido1']."'";
           } ?>>
           <br>
-          <input name="apellido2" type="text" id="apellido2" size="30" placeholder="Segundo apellido"  <?php if($_SESSION['apellido2'] != null){
-            echo "value=".$_SESSION['apellido2']."";
+          <input name="apellido2" type="text" id="apellido2" size="30" placeholder="Segundo apellido"  <?php if(isset($_SESSION['apellido2'])){
+            echo "value='".$_SESSION['apellido2']."'";
           } ?>>
           <br>
-          <input name="nif" type="text" id="nif" size="30" placeholder="DNI (12345678A)"  <?php if($_SESSION['nif'] != null){
-            echo "value=".$_SESSION['nif']."";
+          <input name="nif" type="text" id="nif" size="30" placeholder="DNI (12345678A)"  <?php if(isset($_SESSION['nif'])){
+            echo "value='".$_SESSION['nif']."'";
           } ?>>
           <br>
-          <input name="telefono" type="text" id="telefono" size="30" placeholder="Teléfono"  <?php if($_SESSION['telefono'] != null){
-            echo "value=".$_SESSION['telefono']."";
+          <input name="telefono" type="text" id="telefono" size="30" placeholder="Teléfono"  <?php if(isset($_SESSION['telefono'])){
+            echo "value='".$_SESSION['telefono']."'";
           } ?>>
           <br>
           <!--<input name="email" type="text" id="email" size="30" value="<?php //echo $_SESSION['email']; ?>">
@@ -50,16 +50,16 @@
       </div>
       <div class="col-md-7">
         <fieldset>
-        <input name="provincia" type="text" id="provincia" size="30" placeholder="Provincia" <?php if($_SESSION['provincia'] != null){
-            echo "value=".$_SESSION['provincia']."";
+        <input name="provincia" type="text" id="provincia" size="30" placeholder="Provincia" <?php if(isset($_SESSION['provincia'])){
+            echo "value='".$_SESSION['provincia']."'";
           } ?>>
           <br>
-          <input name="poblacion" type="text" id="poblacion" size="30" placeholder="Población" <?php if($_SESSION['poblacion'] != null){
-            echo "value=".$_SESSION['poblacion']."";
+          <input name="poblacion" type="text" id="poblacion" size="30" placeholder="Población" <?php if(isset($_SESSION['poblacion'])){
+            echo "value='".$_SESSION['poblacion']."'";
           } ?>>
           <br>
-          <input name="direccion" type="text" id="direccion" size="30" placeholder="Dirección" <?php if($_SESSION['direccion'] != null){
-            echo "value=".$_SESSION['direccion']."";
+          <input name="direccion" type="text" id="direccion" size="30" placeholder="Dirección" <?php if(isset($_SESSION['direccion'])){
+            echo "value='".$_SESSION['direccion']."'";
           } ?>>
           <br>
                     <div class="pac-card" id="pac-card">

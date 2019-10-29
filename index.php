@@ -13,7 +13,10 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="landing is-preload">
-
+    <?php 
+    session_start();
+    //print_r ($_SESSION);
+    ?>
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
 
@@ -26,14 +29,19 @@
 									<a href="#menu" class="menuToggle"><span>Menu</span></a>
 									<div id="menu">
 										<ul>
-                                        <?php if($_SESSION['nombre'] != null){
-                                            echo "value=".$_SESSION['nombre']."";
-                                        }else{ ?>
+                                        <?php if(isset($_SESSION['usuario'])){?>
+                                            <li><a href="perfilUsuario.php"><?php echo $_SESSION['usuario']; ?></a></li>
+                                        <?php }else{ ?>
                                             <li><a href="#banner">Home</a></li>
                                         <?php }?>
 											<li><a href="#cta">Pedidos</a></li>
-											<li><a href="catalogo.html">Catálogo</a></li>
-											<li><a href="SignUp.html">Iniciar sesión / Registrarse</a></li>
+                                            <li><a href="catalogo.html">Catálogo</a></li>
+                                            <?php if(isset($_SESSION['usuario'])){
+                                            ?><li><a href = "logOut.php">Cerrar sesión</a></li>
+                                        <?php }else{ ?>
+                                            <li><a href="SignUp.html">Iniciar sesión / Registrarse</a></li>
+                                        <?php }?>
+											
 											
 										</ul>
 									</div>
@@ -146,14 +154,12 @@
 				<!-- Footer -->
 					<footer id="footer">
 						<ul class="icons">
-							<li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+							
+							<li><a href="https://es-es.facebook.com/LaGallinaVioleta" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
 							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<ul class="copyright">
-							<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+							<li>&copy; Hecho por Alberto Saldaña Contreras</li>
 						</ul>
 					</footer>
 

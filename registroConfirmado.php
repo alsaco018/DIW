@@ -23,7 +23,7 @@
 <p style="margin-top: 35%">
 
   
-  <a style="text-decoration:none;color:white;" href="http://albertosaldanacontreras.phpzilla.net/index.html" data-toggle="tooltip" data-placement="bottom" title="¡Gracias por registrarte!">&mdash; Volver a la página principal &mdash;</a>
+  <a style="text-decoration:none;color:white;" href="http://albertosaldanacontreras.phpzilla.net" data-toggle="tooltip" data-placement="bottom" title="¡Gracias por registrarte!">&mdash; Volver a la página principal &mdash;</a>
 
 </p>
 <!-- partial -->

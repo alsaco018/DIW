@@ -39,7 +39,7 @@
             $db or
             die("Connection failed: ");
 
-            $sql = "select Usuario_nick from usuarios where Usuario_email = '".$em."'";
+            $sql = "select Usuario_nick from usuarios where Usuario_email = '".$email."'";
                   //password_hash($password, PASSWORD_DEFAULT);
                   $result = mysqli_query($db,$sql);
                   if(mysql_num_rows($sql)==0){ // no esta disponible

@@ -65,7 +65,7 @@ $db or
         mysqli_query($db,$sqlconexion)
         or die("Problemas en el update 1".mysqli_error($db));
 
-         header("location: http://albertosaldanacontreras.phpzilla.net/indexConectado.php?");
+         header("location: http://albertosaldanacontreras.phpzilla.net");
       }else {
         
          $error = "Tu nombre de usuario o contraseña no son correctos";
