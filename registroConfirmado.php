@@ -47,7 +47,7 @@
               die("Connection failed: ");
     
           $token = Time();
-          $fecha = date("m.d.y");
+          $fecha = date("y.m.d");
           //hasheo de la clave
           $passHash = hash('md5', $pass);
           //echo $passHash;

@@ -1,8 +1,10 @@
+/*@import url("main.css");*/
+
 html {
   height: 100%;
 }
 html body {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(https://unsplash.it/1920/1080?image=871) fixed;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6)), url(https://scontent-mad1-1.xx.fbcdn.net/v/t1.0-9/70508080_2414028918680755_7049545112455479296_n.jpg?_nc_cat=101&_nc_oc=AQn-4oSY5uQx3eelyIGLQNPW5tgWaW3bH1mGuduwdLkaHn_Y1YSwVgSpc1mfP6aJUj4&_nc_ht=scontent-mad1-1.xx&oh=920b3ef00c9312ceef3b99b8ff8df12c&oe=5E5546E6) fixed;
   display: flex;
   justify-content: center;
   height: 100%;

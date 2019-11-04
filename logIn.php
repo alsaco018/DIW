@@ -29,15 +29,75 @@ require 'PHPMailer/src/SMTP.php';
 include('dbConfig.php');
 session_start();
 
+$db or
+    die("Connection failed: ");
+
 $email = $_REQUEST['email'];
 $pass = $_REQUEST['pass0'];
 $passHash = hash('md5', $pass);
 
 $sql = "select Usuario_nick from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
           //password_hash($password, PASSWORD_DEFAULT);
-          $result = mysqli_query($db,$sql);
+          $result = mysqli_query($db,$sql) or die("Problemas en el select 0".mysqli_error($db));
           $result = $result->fetch_array();
           $nick = $result[0];
+
+$sql = "select Usuario_nombre from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+//password_hash($password, PASSWORD_DEFAULT);
+$result = mysqli_query($db,$sql)or die("Problemas en el select 1".mysqli_error($db));
+$result = $result->fetch_array();
+$nombre = $result[0];
+
+$sql = "select Usuario_apellido1 from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+          //password_hash($password, PASSWORD_DEFAULT);
+          $result = mysqli_query($db,$sql) or die("Problemas en el select 2".mysqli_error($db));
+          $result = $result->fetch_array();
+          $apellido1 = $result[0];
+$sql = "select Usuario_apellido2 from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+//password_hash($password, PASSWORD_DEFAULT);
+$result = mysqli_query($db,$sql) or die("Problemas en el select 3".mysqli_error($db));
+$result = $result->fetch_array();
+$apellido2 = $result[0];
+
+$sql = "select Usuario_nif from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+          //password_hash($password, PASSWORD_DEFAULT);
+          $result = mysqli_query($db,$sql) or die("Problemas en el select 4".mysqli_error($db));
+          $result = $result->fetch_array();
+          $nif = $result[0];
+
+$sql = "select Usuario_numero_telefono from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+//password_hash($password, PASSWORD_DEFAULT);
+$result = mysqli_query($db,$sql) or die("Problemas en el select 5".mysqli_error($db));
+$result = $result->fetch_array();
+$telefono = $result[0];
+
+$sql = "select Usuario_provincia from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+          //password_hash($password, PASSWORD_DEFAULT);
+          $result = mysqli_query($db,$sql) or die("Problemas en el select 6".mysqli_error($db));
+          $result = $result->fetch_array();
+          $provincia = $result[0];
+
+$sql = "select Usuario_poblacion from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+//password_hash($password, PASSWORD_DEFAULT);
+$result = mysqli_query($db,$sql) or die("Problemas en el select 7".mysqli_error($db));
+$result = $result->fetch_array();
+$poblacion = $result[0];
+
+$sql = "select Usuario_domicilio from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+          //password_hash($password, PASSWORD_DEFAULT);
+          $result = mysqli_query($db,$sql)
+          or die("Problemas en el slect 8".mysqli_error($db));
+          $result = $result->fetch_array();
+          $direccion = $result[0];
+          
+$_SESSION['nombre'] = $nombre;
+$_SESSION['apellido1'] = $apellido1;
+$_SESSION['apellido2'] = $apellido2;
+$_SESSION['nif'] = $nif;
+$_SESSION['telefono'] = $telefono;
+$_SESSION['provincia'] = $provincia;
+$_SESSION['poblacion'] = $poblacion;
+$_SESSION['direccion'] = $direccion;
 
 
 $_SESSION['email'] = $email;
@@ -45,8 +105,7 @@ $_SESSION['password'] = $pass;
 $_SESSION['usuario'] = $nick;
 //echo $_SESSION['usuario'];
   //establecemos la conexion con la BD
-$db or
-    die("Connection failed: ");
+
 
     $sql2 = "select * from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
           //password_hash($password, PASSWORD_DEFAULT);
@@ -60,7 +119,7 @@ $db or
       // si encuentra al usuario el valor de la fila será 1
 		
       if($count == 1) {
-        $fecha = date("m.d.y");
+        $fecha = date("y.m.d");
         $sqlconexion = "UPDATE usuarios SET Usuario_fecha_ultima_conexion='".$fecha."', Usuario_numero_intentos = 0 WHERE Usuario_email = '".$email."'";
         mysqli_query($db,$sqlconexion)
         or die("Problemas en el update 1".mysqli_error($db));
@@ -93,8 +152,9 @@ $db or
           $result3 = $result3->fetch_array();
           $quantity = intval($result3[0]);
         if($quantity >= 3){
+          $fecha = date("y.m.d");
           $error = "Tu cuenta ha sido bloqueada, revisa tu correo para desbloquearla.";
-          $sqlBloqueo = "UPDATE usuarios SET Usuario_bloqueado=1 WHERE Usuario_email = '".$email."'";
+          $sqlBloqueo = "UPDATE usuarios SET Usuario_bloqueado=1, Usuario_fecha_bloqueo='".$fecha."' WHERE Usuario_email = '".$email."'";
           mysqli_query($db,$sqlBloqueo)
           or die("Problemas en el update 3".mysqli_error($db));
 

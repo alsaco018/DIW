@@ -155,7 +155,7 @@
 					<footer id="footer">
 						<ul class="icons">
 							
-							<li><a href="https://es-es.facebook.com/LaGallinaVioleta" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+							<li><a href="https://es-es.facebook.com/LaGallinaVioleta" class="icon brands fa-facebook-f" target="_blank"><span class="label">Facebook</span></a></li>
 							<li><a href="#" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
 						</ul>
 						<ul class="copyright">

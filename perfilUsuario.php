@@ -12,6 +12,15 @@
 <?php session_start();?>
 <div class="contact" id="contact">
   <div class="container">
+    <div id="page-wrapper">
+    <header id="header" class="alt" style="margin-top:15%;">
+						<nav id="nav">
+            <div align="center">
+            
+              <a href="index.php" style="text-decoration: none; color:white;"><i class="fa fa-home" style="transform:scale(4,4);"></i></a>
+            </div>
+						</nav>
+					</header>
     <div class="col-md-offset-1 col-md-10">
       <h2><?php echo $_SESSION['usuario']; ?><i class="fa fa-user"></i></h2>
       
@@ -92,6 +101,8 @@
         </fieldset>
       </div>
     </form>
+    
+    </div>
   </div>
 </div>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
