@@ -1,5 +1,5 @@
 /*@import url("main.css");*/
-
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,800,800italic");
 html {
   height: 100%;
 }
@@ -8,6 +8,8 @@ html body {
   display: flex;
   justify-content: center;
   height: 100%;
+  font-size: 100%;
+	font: inherit;
 }
 html .contact {
   align-self: center;
@@ -17,8 +19,8 @@ html .contact i {
   font-size: 0.8em;
 }
 html .contact h2 {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 2.5em;
+  
+  font-size: 3.5em;
   border: 1px solid #555;
   background-color: rgba(0, 0, 0, 0.7);
   padding-top: 20px;
@@ -40,9 +42,9 @@ html #contactform input {
   width: 100%;
   outline: none;
   border: none;
-  text-transform: uppercase;
+  
   letter-spacing: 2px;
-  font-size: 11px;
+  font-size: 15px;
   padding-left: 15px;
   height: 44px;
   border-radius: 0;
@@ -52,9 +54,9 @@ html #contactform textarea {
   width: 100%;
   outline: none;
   border: none;
-  text-transform: uppercase;
+  
   letter-spacing: 2px;
-  font-size: 11px;
+  font-size: 15px;
   padding: 15px;
   height: 218px;
   border-radius: 0;
@@ -78,7 +80,7 @@ html #map-canvas {
 }
 
 #description {
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: 300;
 }
@@ -103,7 +105,7 @@ html #map-canvas {
   outline: none;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   background-color: #fff;
-  font-family: Roboto;
+  
 }
 
 #pac-container {
@@ -117,14 +119,14 @@ html #map-canvas {
 }
 
 .pac-controls label {
-  font-family: Roboto;
-  font-size: 13px;
+  
+  font-size: 15px;
   font-weight: 300;
 }
 
 #pac-input {
   background-color: #fff;
-  font-family: Roboto;
+  
   font-size: 15px;
   font-weight: 300;
   margin-left: 12px;
@@ -140,7 +142,7 @@ html #map-canvas {
 #title {
   color: #fff;
   background-color: #4d90fe;
-  font-size: 10px;
+  font-size: 15px;
   font-weight: 250;
   padding: 3px 6px;
 }

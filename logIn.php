@@ -89,6 +89,13 @@ $sql = "select Usuario_domicilio from usuarios where Usuario_email = '".$email."
           or die("Problemas en el slect 8".mysqli_error($db));
           $result = $result->fetch_array();
           $direccion = $result[0];
+
+$sql = "select Usuario_fotografia from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+//password_hash($password, PASSWORD_DEFAULT);
+$result = mysqli_query($db,$sql)
+or die("Problemas en el slect 9".mysqli_error($db));
+$result = $result->fetch_array();
+$foto = $result[0];
           
 $_SESSION['nombre'] = $nombre;
 $_SESSION['apellido1'] = $apellido1;
@@ -98,7 +105,7 @@ $_SESSION['telefono'] = $telefono;
 $_SESSION['provincia'] = $provincia;
 $_SESSION['poblacion'] = $poblacion;
 $_SESSION['direccion'] = $direccion;
-
+$_SESSION['foto'] = $foto;
 
 $_SESSION['email'] = $email;
 $_SESSION['password'] = $pass;

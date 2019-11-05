@@ -35,7 +35,7 @@
                                             <li><a href="#banner">Home</a></li>
                                         <?php }?>
 											<li><a href="#cta">Pedidos</a></li>
-                                            <li><a href="catalogo.html">Catálogo</a></li>
+                                            <li><a href="catalogo.php">Catálogo</a></li>
                                             <?php if(isset($_SESSION['usuario'])){
                                             ?><li><a href = "logOut.php">Cerrar sesión</a></li>
                                         <?php }else{ ?>

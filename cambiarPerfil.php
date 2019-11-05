@@ -32,10 +32,19 @@
     <?php
     session_start();
     include('dbConfig.php');
-    
-          $nick = $_REQUEST['nick'];
-          $email = $_SESSION['email'];
-          $pass = $_REQUEST['pass'];
+
+          if($_REQUEST['nick'] != null){
+            $nick = $_REQUEST['nick'];
+          }else{
+            $nick = $_SESSION['usuario'];
+          }
+          if($_REQUEST['pass'] != null){
+            $pass = $_REQUEST['pass'];
+          }else{
+            $pass = $_SESSION['password'];
+          }
+          
+          
           $nombre = $_REQUEST['nombre'];
           $apellido1 = $_REQUEST['apellido1'];
           $apellido2 = $_REQUEST['apellido2'];
@@ -53,7 +62,8 @@
           $_SESSION['provincia'] = $provincia;
           $_SESSION['poblacion'] = $poblacion;
           $_SESSION['direccion'] = $direccion;
-            
+          $_SESSION['usuario'] = $nick;
+          $_SESSION['password'] = $pass;
             //establecemos la conexion con la BD
           $db or
               die("Connection failed: ");
@@ -63,13 +73,25 @@
           //hasheo de la clave
           $passHash = hash('md5', $pass);
           //echo $passHash;
-          $sql = "UPDATE usuarios SET Usuario_nombre = '".$nombre."',Usuario_apellido1='".$apellido1."',Usuario_apellido2='".$apellido2."',Usuario_nick='".$nick."',Usuario_clave='".$passHash."',Usuario_email='".$email."',Usuario_domicilio='".$direccion."',Usuario_poblacion='".$poblacion."',Usuario_provincia='".$provincia."',Usuario_nif='".$nif."',Usuario_numero_telefono=".$tel." WHERE Usuario_email = '".$email."'";
+          if($_FILES['foto']['tmp_name'] != null){
+            copy($_FILES['foto']['tmp_name'],$_FILES['foto']['name']);
+            //$_FILES['foto']['name'] = "images/".$_FILES['foto']['name'];
+  
+            $nom = $_FILES['foto']['name'];
+            $target_dir= "images/";//la foto que vayas subiendo ira guardandose en la carpeta images, sino tienes esta carpeta no subira el archivo.
+            $target_file = $target_dir . basename($_FILES["foto"]["name"]);
+            $_SESSION['foto'] = $nom;
+          }else{
+            $nom = $_SESSION['foto'];
+          }
+         
+          $sql = "UPDATE usuarios SET Usuario_nombre = '".$nombre."',Usuario_apellido1='".$apellido1."',Usuario_apellido2='".$apellido2."',Usuario_nick='".$nick."',Usuario_clave='".$passHash."',Usuario_email='".$email."',Usuario_domicilio='".$direccion."',Usuario_poblacion='".$poblacion."',Usuario_provincia='".$provincia."',Usuario_nif='".$nif."',Usuario_numero_telefono=".$tel.", Usuario_fotografia='".$nom."' WHERE Usuario_email = '".$email."'";
           //password_hash($password, PASSWORD_DEFAULT); Usuario_fotografia`=[value-20]
           mysqli_query($db,$sql)
           or die("Problemas en el update".mysqli_error($db));
           mysqli_close($db);
         
-         
+          move_uploaded_file($_FILES["foto"]["tmp_name"],$target_file);
         
          
     ?>

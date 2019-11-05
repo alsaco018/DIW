@@ -13,7 +13,7 @@
 <div class="contact" id="contact">
   <div class="container">
     <div id="page-wrapper">
-    <header id="header" class="alt" style="margin-top:15%;">
+    <header id="header" class="alt" style="margin-top:25%;">
 						<nav id="nav">
             <div align="center">
             
@@ -50,11 +50,16 @@
           <br>
           <!--<input name="email" type="text" id="email" size="30" value="<?php //echo $_SESSION['email']; ?>">
           <br>-->
-          <input name="nick" type="text" id="nick" size="30" value="<?php echo $_SESSION['usuario']; ?>">
+          <input name="nick" type="text" id="nick" size="30" placeholder="<?php echo $_SESSION['usuario']; ?>">
           <br>
-          <input name="pass" type="text" id="pass" size="30" value="<?php echo $_SESSION['password']; ?>">
+          <input name="pass" type="text" id="pass" size="30" placeholder="<?php echo $_SESSION['password']; ?>">
           <br>
+          <label for="foto" style="color:white;">Foto de usuario: </label><br />
+          <?php if(isset($_SESSION['foto'])){
+            echo "<img src='".$_SESSION['foto']."' style='width:200px;height:150px;'>";
+          } ?>
           
+          <input type="file" name="foto" id="foto" style="color:white;"><br />
         </fieldset>
       </div>
       <div class="col-md-7">
