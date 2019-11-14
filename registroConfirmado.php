@@ -51,7 +51,7 @@
           //hasheo de la clave
           $passHash = hash('md5', $pass);
           //echo $passHash;
-          $sql = "INSERT INTO usuarios(Usuario_nick, Usuario_clave, Usuario_email, Usuario_token_aleatorio, Usuario_fecha_alta) VALUES ('$nick','$passHash','$email','$token','$fecha')";
+          $sql = "INSERT INTO usuarios(Usuario_nick, Usuario_clave, Usuario_email, Usuario_token_aleatorio, Usuario_fecha_alta, Usuario_perfil) VALUES ('$nick','$passHash','$email','$token','$fecha', 'usuario')";
           //password_hash($password, PASSWORD_DEFAULT);
           mysqli_query($db,$sql)
           or die("Problemas en el insert".mysqli_error($db));

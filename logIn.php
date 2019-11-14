@@ -96,6 +96,12 @@ $result = mysqli_query($db,$sql)
 or die("Problemas en el slect 9".mysqli_error($db));
 $result = $result->fetch_array();
 $foto = $result[0];
+
+$sql = "select Usuario_perfil from usuarios where Usuario_email = '".$email."' and Usuario_clave = '".$passHash."' and Usuario_bloqueado = 0";
+//password_hash($password, PASSWORD_DEFAULT);
+$result = mysqli_query($db,$sql) or die("Problemas en el select 3".mysqli_error($db));
+$result = $result->fetch_array();
+$perfil = $result[0];
           
 $_SESSION['nombre'] = $nombre;
 $_SESSION['apellido1'] = $apellido1;
@@ -106,7 +112,7 @@ $_SESSION['provincia'] = $provincia;
 $_SESSION['poblacion'] = $poblacion;
 $_SESSION['direccion'] = $direccion;
 $_SESSION['foto'] = $foto;
-
+$_SESSION['perfil'] = $perfil;
 $_SESSION['email'] = $email;
 $_SESSION['password'] = $pass;
 $_SESSION['usuario'] = $nick;
@@ -230,10 +236,7 @@ $_SESSION['usuario'] = $nick;
               <label for="pass" class="label">Contraseña</label>
               <input name="pass" id="pass" type="password" class="input" data-type="password">
             </div>
-            <div class="group">
-              <input id="check" type="checkbox" class="check" checked>
-              <label for="check"><span class="icon"></span>Mantenerme conectado</label>
-            </div>
+            
             <div class="group">
                 <p id="error"><?php echo $error; ?></p>
             </div>
